@@ -1,0 +1,208 @@
+html,body{
+    margin:0px; /*確保填滿畫面邊框*/
+    width:100%;
+    height:100%;
+}
+.head{
+    background-color: pink;
+    height: 40px;
+    display:flex;   /*以此為父層，開放子層區塊對齊*/
+}
+.left{
+    width:50%;
+    height:100%;
+    background-color: green;
+    font-size: 20px;
+    margin:0px;
+    align-items: center;    /*操控區塊垂直對齊*/
+    justify-content: left; /*水平對齊-靠左邊*/
+    display:flex;
+    
+
+}
+.right{
+    width:50%;
+    height:100%;
+    background-color: gold;
+    font-size: 20px;
+    margin:0px;
+    align-items: center;    /*操控區塊垂直對齊*/
+    justify-content: right; /*水平對齊-靠左邊*/
+    display:flex;
+}
+
+.mobile-menue{
+    background-color: red;
+    width:50%;
+    justify-content: right;/*水平靠右*/
+    align-items: center;    /*垂直置中*/
+    padding:3px 30px;
+    display:none;
+}
+
+.itemleft{
+    width:100px;
+    background-color: blueviolet;
+    margin:2px;
+    
+}
+.item{
+    width:50px;
+    background-color: blueviolet;
+    margin:2px;
+    
+}
+
+.mid{
+    width:100%;
+    height:300px;
+    background-color: aquamarine;
+    display:flex;
+    align-items: center;    /*操控區塊垂直對齊*/
+    justify-content: center; /*水平對齊-置中*/
+}
+
+.welcome{
+    height:80%;
+    display:flex;           /*區塊內文完美置中*/
+    align-items: center;    /*操控區塊垂直對齊*/
+    justify-content: center; /*水平對齊-置中*/
+    background-color: brown;
+    font-size: 50px;
+}
+
+.bottom{
+    height:100%;
+    background-color: blanchedalmond;
+    display:flex;            /*操作內部區塊對齊*/
+    justify-content: center; /*水平對齊-內文置中*/
+}
+
+.blockup{
+    width:1200px;
+    height:70px;
+    background-color: rgb(212, 250, 190);   
+}
+
+.blockdown{
+    width:1200px;
+    height:440px;
+    background-color:brown;
+}
+
+.list{
+    display:flex;
+}
+
+.companyup{
+    background-color: green;
+    width:580px;
+    height:50px;
+    margin:10px;
+    display:flex;
+}
+
+.pictureleft{
+    width:80px;
+    height:50px;
+    background-color: rgb(238, 183, 116);
+}
+
+.pictureSmall{
+    margin:0px; /*確保填滿畫面邊框*/
+    height:50px;
+    width:100%;
+    object-fit:cover;   /*裁切縮放*/
+}
+
+.pictureright{
+    display:flex;           /*操作內文區塊完美置中*/
+    justify-content: center;/*水平置中*/
+    align-items: center;    /*垂直置中*/
+    /* background-color: aliceblue; */
+    
+}
+
+.pictureBig{
+    margin:0px; /*確保填滿畫面邊框*/
+    height:170px;
+    width:100%;
+    object-fit:cover;   /*裁切縮放*/
+}
+
+.companydown{
+    background-color: green;
+    width:280px;
+    height:200px;
+    margin:10px;
+    /* display:flex; */
+}
+
+.pictureup{
+    height:170px;
+    background-color:gold;
+}
+
+.picturedown{
+    height:30px;
+    display:flex;           /*操作內文區塊完美置中*/
+    justify-content: center;/*水平置中*/
+    align-items: center;    /*垂直置中*/
+}
+
+
+@media (max-width:1200px){
+    /*螢幕小於1200像素，套用這個區塊的CSS*/
+    .list{
+        flex-wrap: wrap; /*往下掉設定*/
+    }
+    .companyup{
+        width:45%;
+        margin-left: 2.5%;
+        margin-right: 2.5%;
+    }
+    .companydown{
+        width:45%;
+        margin-left: 2.5%;
+        margin-right: 2.5%;
+    }
+
+}
+
+
+@media (max-width:600px){
+    /*螢幕小於600像素，套用這個區塊的CSS*/
+    .list{
+        flex-wrap: wrap; /*往下掉設定*/
+    }
+    .companyup{
+        width:90%;
+        margin-left:5%;
+        margin-right:5%;
+        margin-top:5%;
+        margin-bottom: 0px;
+    }
+    .companydown{
+        width:90%;
+        margin-left:5%;
+        margin-right:5%;
+        margin-top:5%;
+        margin-bottom: 0px;
+    }
+    .right{
+        display:none;
+    }
+
+    .mobile-menue{
+        display:flex;
+    }
+    .welcome{
+        font-size: 30px;
+    }
+
+}
+
+
+.red{
+    background-color:red;
+}
