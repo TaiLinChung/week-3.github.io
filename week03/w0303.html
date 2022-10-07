@@ -1,11 +1,10 @@
-
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width",initial-scale="1.0" />
         <title>W01</title>
-        <link rel="stylesheet" type="text/css" href="w0303.css" />
+        <link rel="stylesheet" type="text/css" href="w0303copy.css" />
 
 
     </head>
@@ -30,7 +29,7 @@
                 Welcome to MyHome
             </div>
         </div>
-        <div class="bottom">
+        <div class="bottom1">
             <div class="blockup">
                 <div class="list">
                     <div class="companyup">
@@ -51,7 +50,11 @@
                         </dic>
                     </div>
                 </div>
-            
+            </div>
+        </div>
+
+        <div class="bottom2">
+            <div id="flagEnd" class="blockdown">
                 <div class="list">
                     <div class="companydown">
                         <div id="idPic2" class="pictureup">
@@ -138,35 +141,23 @@
 
             let fetchRes = fetch(
                 "https://padax.github.io/taipei-day-trip-resources/taipei-attractions-assignment.json");
-            // fetchRes is the promise to resolve
-            // it by using.then() method
+
             fetchRes.then(res =>res.json())
                 .then(data => {
-                    //console.log(data);所有資料
-                    // console.log(data["result"]["results"]);
-                    scopeList=data["result"]["results"];
-                    //取得標籤物件(首要抓到id所在)
-                    // let elem=document.querySelector("#name01");     //("#id選擇器")
-                    // console.log(elem);
-                    //操作標籤物件
-                    // elem.innerHTML="對特定標籤做操作" //修改標籤內文
-                    // let content=document.createElement();
 
-                    //操作createTextNode&appendChild方法
-                    // let content=document.createTextNode(scopeList[0]["stitle"]);
-                    // elem.appendChild(content);
+                    scopeList=data["result"]["results"];
+                    
                     for(let num =0;num<10;num++){
                         idName="#name"+String(num);
                         // console.log(num);
 
                         //---------是否等同document.getElementById
-                        let posName=document.querySelector(idName);     //("#id選擇器")
+                        let nameBlock = document.createElement("div");     //创建一个div元素
                         let content=document.createTextNode(scopeList[num]["stitle"]); 
-                        posName.appendChild(content);
-
-
-
-                        
+                        nameBlock.appendChild(content);
+                        let posName=document.querySelector(idName);     //("#id選擇器")
+                        posName.appendChild(nameBlock);
+                                               
                     }
                     for(let num=0;num<2;num++){
                         let linkAll=scopeList[num]["file"];
@@ -208,9 +199,77 @@
                     // let node = document.createElement("li");          //創建一個li標籤節點
                     // let textnode = document.createTextNode("Water");  //創建一個內文的節點區塊，也記載長度
                     // node.appendChild(textnode);                         //將內文塞入標籤節點中
-                    // document.getElementById("name9").appendChild(node);//獲得對應id標籤內文最末端的節點位置，
+                    // document.getElementById("TT").appendChild(node);//獲得對應id標籤內文最末端的節點位置，
                     //                                             //以此為基準將創建且擴張後的資料置入。
+
+
+                    
+                    
                 })
+
+
+            // x=document.querySelectorAll("div");
+            // for(let i=0;i<x.length;i++){
+            //     if x[i].contain("#"){
+
+            //     }
+            //     console.log(x[i]);
+            // }
+            
+                
+
+
+
+
+                //創建<div list>
+                let nodeList=document.createElement("div");          //創建一個標籤節點
+                let texteList = document.createTextNode("");  //創建一個內文的節點區塊，也記載長度
+                nodeList.appendChild(texteList);                         //將內文塞入標籤節點中
+                nodeList.setAttribute("class","list");     //為這個元素設定class屬性
+                nodeList.setAttribute("id","newBlock");     //為這個元素設定id
+                document.getElementById("flagEnd").appendChild(nodeList);
+
+                
+                //創建綠色區塊
+                let nodeCompanydown=document.createElement("div");
+                nodeCompanydown.setAttribute("class","companydown");
+                nodeCompanydown.setAttribute("id","down0");
+                document.getElementById("newBlock").appendChild(nodeCompanydown);
+
+                //基於綠色創建紫色區塊
+                let nodePictureup=document.createElement("div");     //創建一個標籤節點
+                nodePictureup.setAttribute("class","pictureup");          //為這個元素設定class屬性
+                nodePictureup.setAttribute("id","down0up");
+                document.getElementById("down0").appendChild(nodePictureup);
+
+                //基於綠色創建黃色區塊
+                let nodePicturedown=document.createElement("div");
+                nodePicturedown.setAttribute("class","picturedown");          //為這個元素設定class屬性
+                nodePicturedown.setAttribute("id","down0down");
+                document.getElementById("down0").appendChild(nodePicturedown);
+
+
+                
+                // //創建綠色區塊
+                // let nodeCompanydown1=document.createElement("div");
+                // let textCompanydown1=document.createTextNode(""); //無內文暫省略
+                // nodeCompanydown1.appendChild(textCompanydown);
+                // nodeCompanydown1.setAttribute("class","companydown");
+                // // nodeCompanydown1.setAttribute("id","down0");
+                // document.getElementById("newBlock").appendChild(nodeCompanydown1);
+
+                // 取得 "<li>Item 02</li>" 的元素
+                let refNode = document.querySelectorAll('div')[-1];
+                // 建立 div 元素節點
+                let newNode = document.createElement('div');
+                // 建立 textNode 文字節點
+                let textNode = document.createTextNode("Hello world!");
+                newNode.appendChild(textNode);
+                // 將新節點 newNode 插入 refNode 的後方
+                myList.insertBefore(newNode, refNode);
+
+
+                
 
         </script>
     </body>
